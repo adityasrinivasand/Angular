@@ -1,0 +1,25 @@
+<h1 class="d-flex justify-content-center">My Employees List</h1>
+
+<div class="container ">
+    <table class="table table-striped">
+      <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>DOB</th>
+          </tr>
+      </thead>
+      <tbody>
+        <tr  [class.selected]="emp === selectedEmployee" *ngFor="let emp of employees" (click)="onSelect(emp)">
+          <td>{{ emp.id }}</td>
+          <td>{{ emp.name }}</td>
+          <td>{{ emp.gender }}</td>
+          <td>{{ emp.DOB }}</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+
+<app-employee-detail [employee]="selectedEmployee"></app-employee-detail>
+
