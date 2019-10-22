@@ -1,12 +1,11 @@
-
-<div *ngIf="selectedEmployee">
-
-        <h2>{{selectedEmployee.name | uppercase}} Details</h2>
-        <div><span>id: </span>{{selectedEmployee.id}}</div>
-        <div>
-          <label>name:
-            <input [(ngModel)]="selectedEmployee.name" placeholder="name"/>
-          </label>
-        </div>
-      
+<div *ngIf="employee">
+    <h2>{{employee.name | uppercase}} Details</h2>
+    <div><span>id: </span>{{employee.id}}</div>
+    <div>
+      <label> Name:
+        <input [(ngModel)]="employee.name" placeholder="name"/>
+      </label>
+    </div>
+    <button class="btn btn-success" (click)="save()">save</button>
+    <button class="btn btn-danger" (click)="goBack()">go back</button>   
 </div>

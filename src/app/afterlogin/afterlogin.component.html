@@ -1,0 +1,18 @@
+<h1 class="d-flex justify-content-center">Employees List</h1>
+<button class='btn btn-success pull-left' (click)="onSubmit()">LogOut</button>
+<div class="container ">
+    <table class="table table-striped">
+      <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+          </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let emp of employees">
+          <td>{{ emp.id }}</td>
+          <td>{{ emp.name }}</td>
+        </tr>
+      </tbody>
+    </table>
+</div>

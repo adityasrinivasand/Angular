@@ -1,4 +1,14 @@
 <h1 class="d-flex justify-content-center">My Employees List</h1>
+<button class='btn btn-success pull-left' (click)="onSubmit()">LogOut</button>
+
+<label>Employee name:
+    <input #employeeName />
+  </label>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="add(employeeName.value); employeeName.value=''">
+    add
+  </button> 
+
 
 <div class="container ">
     <table class="table table-striped">
@@ -6,20 +16,19 @@
           <tr>
             <th>ID</th>
             <th>Name</th>
-            <th>Gender</th>
-            <th>DOB</th>
+            <th>Update</th>
+            <th>Delete</th>
           </tr>
       </thead>
       <tbody>
-        <tr  [class.selected]="emp === selectedEmployee" *ngFor="let emp of employees" (click)="onSelect(emp)">
+        <tr *ngFor="let emp of employees">
           <td>{{ emp.id }}</td>
           <td>{{ emp.name }}</td>
-          <td>{{ emp.gender }}</td>
-          <td>{{ emp.DOB }}</td>
+          <td><button class="btn btn-warning" title="delete employee"
+            routerLink="/detail/{{emp.id}}">Update</button></td>
+          <td><button class="btn btn-danger" title="delete employee"
+            (click)="delete(emp)">Delete</button></td>
         </tr>
       </tbody>
     </table>
 </div>
-
-<app-employee-detail [employee]="selectedEmployee"></app-employee-detail>
-
